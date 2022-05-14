@@ -456,7 +456,7 @@ describe('utils', () => {
   describe('runPopup', () => {
     const TIMEOUT_ERROR = { error: 'timeout', error_description: 'Timeout' };
 
-    const url = 'https://authorize.com';
+    const url = 'https://oidc/auth.com';
 
     const setup = customMessage => {
       const popup = {
@@ -609,7 +609,7 @@ describe('utils', () => {
         setAttribute: jest.fn(),
         style: { display: '' }
       };
-      const url = 'https://authorize.com';
+      const url = 'https://oidc/auth.com';
       const origin =
         (customMessage && customMessage.origin) || 'https://origin.com';
       window.addEventListener = <any>jest.fn((message, callback) => {

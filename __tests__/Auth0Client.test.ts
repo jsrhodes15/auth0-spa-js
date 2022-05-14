@@ -146,7 +146,7 @@ describe('Auth0Client', () => {
     const auth0 = setup();
     await login(auth0);
     const url = new URL(mockWindow.location.assign.mock.calls[0][0]);
-    assertUrlEquals(url, 'auth0_domain', '/authorize', {
+    assertUrlEquals(url, 'auth0_domain', '/oidc/auth', {
       client_id: 'auth0_client_id',
       redirect_uri: 'my_callback_url',
       scope: 'openid profile email',
