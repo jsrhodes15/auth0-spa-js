@@ -188,7 +188,7 @@ export default class Auth0Client {
     };
   }
   private _authorizeUrl(authorizeOptions: AuthorizeOptions) {
-    return this._url(`/authorize?${createQueryParams(authorizeOptions)}`);
+    return this._url(`/oidc/auth?${createQueryParams(authorizeOptions)}`);
   }
   private _verifyIdToken(id_token: string, nonce?: string) {
     return verifyIdToken({
@@ -212,7 +212,7 @@ export default class Auth0Client {
    * await auth0.buildAuthorizeUrl(options);
    * ```
    *
-   * Builds an `/authorize` URL for loginWithRedirect using the parameters
+   * Builds an `/oidc/auth` URL for loginWithRedirect using the parameters
    * provided as arguments. Random and secure `state` and `nonce`
    * parameters will be auto-generated.
    *
@@ -258,7 +258,7 @@ export default class Auth0Client {
    * await auth0.loginWithPopup(options);
    * ```
    *
-   * Opens a popup with the `/authorize` URL using the parameters
+   * Opens a popup with the `/oidc/auth` URL using the parameters
    * provided as arguments. Random and secure `state` and `nonce`
    * parameters will be auto-generated. If the response is successful,
    * results will be valid according to their expiration times.
@@ -392,7 +392,7 @@ export default class Auth0Client {
    * await auth0.loginWithRedirect(options);
    * ```
    *
-   * Performs a redirect to `/authorize` using the parameters
+   * Performs a redirect to `/oidc/auth` using the parameters
    * provided as arguments. Random and secure `state` and `nonce`
    * parameters will be auto-generated.
    *
@@ -515,14 +515,14 @@ export default class Auth0Client {
    * ```
    *
    * If there's a valid token stored, return it. Otherwise, opens an
-   * iframe with the `/authorize` URL using the parameters provided
+   * iframe with the `/oidc/auth` URL using the parameters provided
    * as arguments. Random and secure `state` and `nonce` parameters
    * will be auto-generated. If the response is successful, results
    * will be valid according to their expiration times.
    *
    * If refresh tokens are used, the token endpoint is called directly with the
    * 'refresh_token' grant. If no refresh token is available to make this call,
-   * the SDK falls back to using an iframe to the '/authorize' URL.
+   * the SDK falls back to using an iframe to the '/oidc/auth' URL.
    *
    * This method may use a web worker to perform the token call if the in-memory
    * cache is used.
@@ -587,7 +587,7 @@ export default class Auth0Client {
    * ```js
    * const token = await auth0.getTokenWithPopup(options);
    * ```
-   * Opens a popup with the `/authorize` URL using the parameters
+   * Opens a popup with the `/oidc/auth` URL using the parameters
    * provided as arguments. Random and secure `state` and `nonce`
    * parameters will be auto-generated. If the response is successful,
    * results will be valid according to their expiration times.
